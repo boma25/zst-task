@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/zxt-task/static/css/main.caf92a65.css",
+    "main.js": "/zxt-task/static/js/main.968b8f6c.js",
+    "index.html": "/zxt-task/index.html",
+    "main.caf92a65.css.map": "/zxt-task/static/css/main.caf92a65.css.map",
+    "main.968b8f6c.js.map": "/zxt-task/static/js/main.968b8f6c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.caf92a65.css",
+    "static/js/main.968b8f6c.js"
+  ]
+}
