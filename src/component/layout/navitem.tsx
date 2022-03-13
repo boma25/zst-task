@@ -7,8 +7,9 @@ interface props {
 	name: string
 	active?: boolean
 	Icon: any
+	onClick: any
 }
-const NavItem: React.FC<props> = ({ active, name, Icon }) => {
+const NavItem: React.FC<props> = ({ active, name, Icon, onClick }) => {
 	const [hover, setHover] = useState(false)
 
 	const _handleHover = () => {
@@ -17,9 +18,10 @@ const NavItem: React.FC<props> = ({ active, name, Icon }) => {
 
 	return (
 		<div
-			className="items-center pl-11 justify-between flex cursor-pointer mb-6 duration-500"
+			className="items-center lg:pl-11 pl-3 justify-between flex cursor-pointer mb-6 duration-500"
 			onMouseEnter={_handleHover}
 			onMouseLeave={_handleHover}
+			onClick={onClick}
 		>
 			<div
 				className={`flex space-x-2 items-center text-sm text-gray-500 duration-500 ${

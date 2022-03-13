@@ -54,18 +54,18 @@ const Listing: React.FC<props> = ({
 				<img
 					src={imageUrl}
 					alt="listing-view"
-					className="w-1/6 h-[100px] rounded"
+					className="md:w-1/6 md:h-[100px] w-1/4 h-[80px] rounded"
 				/>
 				<div className="flex flex-col justify-between">
 					<div>
 						<p>{name}</p>
-						<div className="flex space-x-1 text-xs text-gray-500 items-center">
+						<div className="flex space-x-1 text-[10px] md:text-xs text-gray-500 items-center">
 							<ImLocation2 />
 							<p>{description}</p>
 						</div>
 					</div>
 
-					<div className="flex text-xs text-gray-500 space-x-4">
+					<div className="flex text-[10px] md:text-xs text-gray-500 space-x-4">
 						<p>{contact_name}</p>
 						<p>+{contact_num}</p>
 					</div>

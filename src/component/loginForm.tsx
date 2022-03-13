@@ -43,7 +43,7 @@ const LoginForm: React.FC<props> = ({ className, setIsLoggedIn }) => {
 			className={`${className} flex z-10 absolute h-screen w-full top-0 justify-center items-center bg-black bg-opacity-60`}
 		>
 			<form
-				className="bg-gray-800 h-1/2 drop-shadow w-1/3 flex flex-col items-center py-8 rounded"
+				className="bg-gray-800 h-1/2 drop-shadow w-10/12 md:w-1/3  flex flex-col items-center py-8 rounded"
 				onSubmit={_handleLogin}
 			>
 				<p className="text-3xl font-bold text-white">Login</p>
