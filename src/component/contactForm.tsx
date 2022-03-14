@@ -19,7 +19,7 @@ const ContactForm: React.FC<props> = ({
 			className={`${className} flex z-10 absolute h-screen w-11/12 md:w-9/12 top-0 justify-center items-center`}
 		>
 			<form
-				className="bg-gray-800 h-1/2 drop-shadow md:w-1/2 w-10/12 flex flex-col items-center py-8 rounded"
+				className="bg-gray-800 lg:h-1/2 h-1/3 drop-shadow md:w-1/2 w-10/12 flex flex-col items-center py-8 rounded"
 				onSubmit={onSubmit}
 			>
 				<div

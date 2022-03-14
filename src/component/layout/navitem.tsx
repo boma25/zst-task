@@ -18,7 +18,7 @@ const NavItem: React.FC<props> = ({ active, name, Icon, onClick }) => {
 
 	return (
 		<div
-			className="items-center lg:pl-11 pl-3 justify-between flex cursor-pointer mb-6 duration-500"
+			className="items-center lg:pl-11 pl-3 justify-between flex cursor-pointer mb-6 duration-300"
 			onMouseEnter={_handleHover}
 			onMouseLeave={_handleHover}
 			onClick={onClick}

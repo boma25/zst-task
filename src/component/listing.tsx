@@ -48,7 +48,7 @@ const Listing: React.FC<props> = ({
 	return (
 		<>
 			<div
-				className="flex drop-shadow space-x-4 rounded-lg bg-white mb-4 p-2 hover:border-2 duration-500 border-blue-500 cursor-pointer"
+				className="flex drop-shadow space-x-4 rounded-lg bg-white mb-4 p-2 border-2 border-transparent duration-200 hover:border-blue-500 cursor-pointer"
 				onClick={_handleContactShow}
 			>
 				<img
