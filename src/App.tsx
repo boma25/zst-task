@@ -9,22 +9,14 @@ import Listing from "./component/listing"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { AiOutlineMenu } from "react-icons/ai"
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch, RootState } from "./store"
+import { searchList } from "./store/slice/appslice"
 
 function App() {
-	const [search, setSearch] = useState("")
-	const [availableList, setAvailableList] = useState(listings)
+	const dispatch: AppDispatch = useDispatch()
+	const { availableList, search } = useSelector((state: RootState) => state.app)
 	const [isOpen, setIsOpen] = useState(false)
-
-	useEffect(() => {
-		setAvailableList(
-			listings.filter(
-				(value) =>
-					value.name.toLowerCase().includes(search.toLowerCase()) ||
-					value.description.toLowerCase().includes(search.toLowerCase()) ||
-					value.contact_name.toLowerCase().includes(search.toLowerCase())
-			)
-		)
-	}, [search])
 
 	const _handleClose = () => setIsOpen(!isOpen)
 
@@ -41,7 +33,7 @@ function App() {
 						type="search"
 						className="focus:outline-none  w-10/12 bg-transparent"
 						placeholder="Search listings"
-						onChange={(e) => setSearch(e.target.value)}
+						onChange={(e) => dispatch(searchList(e.target.value))}
 						value={search}
 					/>
 				</div>
@@ -52,7 +44,7 @@ function App() {
 					type="search"
 					className="focus:outline-none  w-10/12 bg-transparent"
 					placeholder="Search listings"
-					onChange={(e) => setSearch(e.target.value)}
+					onChange={(e) => dispatch(searchList(e.target.value))}
 					value={search}
 				/>
 			</div>

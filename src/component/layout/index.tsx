@@ -6,13 +6,15 @@ import { asideList } from "../../utils/data"
 import LoginForm from "../loginForm"
 import NavItem from "./navitem"
 import { AiOutlineCloseCircle } from "react-icons/ai"
+import { useSelector } from "react-redux"
+import { RootState } from "../../store"
 
 interface props {
 	setIsOpen: any
 	isOpen: boolean
 }
 const Layout: React.FC<props> = ({ children, setIsOpen, isOpen }) => {
-	const [isLoggedIn, setIsLoggedIn] = useState(false)
+	const { isLoggedIn } = useSelector((state: RootState) => state.app)
 
 	const _handleClose = () => setIsOpen(!isOpen)
 	return (
@@ -45,7 +47,7 @@ const Layout: React.FC<props> = ({ children, setIsOpen, isOpen }) => {
 					{children}
 				</div>
 			</div>
-			{!isLoggedIn && <LoginForm setIsLoggedIn={setIsLoggedIn} />}
+			{!isLoggedIn && <LoginForm />}
 		</>
 	)
 }

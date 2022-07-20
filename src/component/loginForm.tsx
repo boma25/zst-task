@@ -1,37 +1,27 @@
 /** @format */
 
 import React, { useState } from "react"
-import { toast } from "react-toastify"
-import { loginCred } from "../utils/data"
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch, RootState } from "../store"
+import { login } from "../store/slice/appslice"
 import Loader from "./loader"
 
 interface props {
 	className?: string
-	setIsLoggedIn: any
 }
 
-const LoginForm: React.FC<props> = ({ className, setIsLoggedIn }) => {
+const LoginForm: React.FC<props> = ({ className }) => {
 	const [formData, setFormData] = useState({
 		username: "",
 		password: "",
 	})
-	const [isLoading, setIsLoading] = useState(false)
+	const { isLoading } = useSelector((state: RootState) => state.app)
+	const dispatch: AppDispatch = useDispatch()
 
 	const _handleLogin = (e: any) => {
 		e.preventDefault()
-		setIsLoading(true)
-		setTimeout(() => {
-			setIsLoading(false)
-			if (
-				formData.username.toLowerCase() === loginCred.username &&
-				formData.password === loginCred.password
-			) {
-				setIsLoggedIn(true)
-				return toast.dark("login successful")
-			}
-			setFormData({ ...formData, password: "" })
-			toast.dark("invalid username or password")
-		}, 3000)
+		dispatch(login(formData))
+		setFormData({ ...formData, password: "" })
 	}
 
 	const _handleChange = (e: any) => {
