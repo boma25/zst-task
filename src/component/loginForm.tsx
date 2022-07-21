@@ -1,13 +1,13 @@
 /** @format */
 
 import React, { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { AppDispatch, RootState } from "../store"
-import { login } from "../store/slice/appslice"
+import { useAppDispatch, useAppSelector } from "../store/hooks"
+import { appState, login } from "../store/slice/appslice"
 import Loader from "./loader"
 
 interface props {
 	className?: string
+	testId?: string
 }
 
 const LoginForm: React.FC<props> = ({ className }) => {
@@ -15,8 +15,8 @@ const LoginForm: React.FC<props> = ({ className }) => {
 		username: "",
 		password: "",
 	})
-	const { isLoading } = useSelector((state: RootState) => state.app)
-	const dispatch: AppDispatch = useDispatch()
+	const { isLoading } = useAppSelector(appState)
+	const dispatch = useAppDispatch()
 
 	const _handleLogin = (e: any) => {
 		e.preventDefault()

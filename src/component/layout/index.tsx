@@ -1,20 +1,20 @@
 /** @format */
 
-import React, { useState } from "react"
+import React from "react"
 import { IoLogoBitbucket } from "react-icons/io"
 import { asideList } from "../../utils/data"
 import LoginForm from "../loginForm"
 import NavItem from "./navitem"
 import { AiOutlineCloseCircle } from "react-icons/ai"
-import { useSelector } from "react-redux"
-import { RootState } from "../../store"
+import { useAppSelector } from "../../store/hooks"
+import { appState } from "../../store/slice/appslice"
 
 interface props {
 	setIsOpen: any
 	isOpen: boolean
 }
 const Layout: React.FC<props> = ({ children, setIsOpen, isOpen }) => {
-	const { isLoggedIn } = useSelector((state: RootState) => state.app)
+	const { isLoggedIn } = useAppSelector(appState)
 
 	const _handleClose = () => setIsOpen(!isOpen)
 	return (
@@ -47,7 +47,8 @@ const Layout: React.FC<props> = ({ children, setIsOpen, isOpen }) => {
 					{children}
 				</div>
 			</div>
-			{!isLoggedIn && <LoginForm />}
+			<LoginForm testId="login-form" />
+			{!isLoggedIn && <LoginForm testId="login-form" />}
 		</>
 	)
 }

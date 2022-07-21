@@ -2,6 +2,7 @@
 
 import { createSlice } from "@reduxjs/toolkit"
 import { toast } from "react-toastify"
+import { RootState } from ".."
 import { listings, loginCred } from "../../utils/data"
 
 const initialState = {
@@ -40,6 +41,8 @@ export const appSlice = createSlice({
 		},
 	},
 })
+
+export const appState = (state: RootState) => state.app
 
 export const { searchList, login } = appSlice.actions
 

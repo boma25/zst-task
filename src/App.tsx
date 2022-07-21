@@ -1,21 +1,19 @@
 /** @format */
 
-import React, { useState, useEffect } from "react"
+import { useState } from "react"
 import "./App.css"
 import Layout from "./component/layout/index"
 import { BsSearch } from "react-icons/bs"
-import { listings } from "./utils/data"
 import Listing from "./component/listing"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { AiOutlineMenu } from "react-icons/ai"
-import { useDispatch, useSelector } from "react-redux"
-import { AppDispatch, RootState } from "./store"
-import { searchList } from "./store/slice/appslice"
+import { appState, searchList } from "./store/slice/appslice"
+import { useAppDispatch, useAppSelector } from "./store/hooks"
 
 function App() {
-	const dispatch: AppDispatch = useDispatch()
-	const { availableList, search } = useSelector((state: RootState) => state.app)
+	const dispatch = useAppDispatch()
+	const { availableList, search } = useAppSelector(appState)
 	const [isOpen, setIsOpen] = useState(false)
 
 	const _handleClose = () => setIsOpen(!isOpen)
