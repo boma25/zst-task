@@ -1,14 +1,10 @@
 /** @format */
 
-import { listings } from "../utils/data"
+import { listings } from "../utils/data";
+import { initialState } from "./slice/appslice";
 
 const state = {
-	app: {
-		search: "",
-		availableList: listings,
-		isLoggedIn: false,
-		isLoading: false,
-	},
-}
+  app: initialState,
+};
 
-export const testStateSelector = (f: Function) => f(state)
+export const testStateSelector = (f: Function) => f(state);
