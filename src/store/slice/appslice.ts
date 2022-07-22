@@ -5,7 +5,7 @@ import { toast } from "react-toastify"
 import { RootState } from ".."
 import { listings, loginCred } from "../../utils/data"
 
-const initialState = {
+export const initialState = {
 	search: "",
 	availableList: listings,
 	isLoggedIn: false,

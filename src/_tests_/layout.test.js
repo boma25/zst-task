@@ -1,6 +1,6 @@
 /** @format */
 
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import Layout from "../component/layout"
 import { useAppDispatch, useAppSelector } from "../store/hooks"
 import { testStateSelector } from "../store/test-utiles"
@@ -17,5 +17,10 @@ describe("layout", () => {
 
 	it("should render the layout component", () => {
 		render(<Layout />)
+	})
+
+	it("should render the login component if user is not login", () => {
+		render(<Layout />)
+		// screen.findAllByTestId()
 	})
 })
