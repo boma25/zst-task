@@ -10,7 +10,7 @@ interface props {
 	testId?: string
 }
 
-const LoginForm: React.FC<props> = ({ className }) => {
+const LoginForm: React.FC<props> = ({ className, testId }) => {
 	const [formData, setFormData] = useState({
 		username: "",
 		password: "",
@@ -30,6 +30,7 @@ const LoginForm: React.FC<props> = ({ className }) => {
 
 	return (
 		<div
+			data-testid={testId}
 			className={`${className} flex z-10 absolute h-screen w-full top-0 justify-center items-center bg-black bg-opacity-60`}
 		>
 			<form

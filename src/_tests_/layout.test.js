@@ -1,26 +1,25 @@
 /** @format */
 
-import { render, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import Layout from "../component/layout"
-import { useAppDispatch, useAppSelector } from "../store/hooks"
-import { testStateSelector } from "../store/test-utiles"
-
-jest.mock("../store/hooks")
+import { renderWithProviders } from "../store/test-utiles"
 
 describe("layout", () => {
-	beforeEach(() => {
-		useAppSelector.mockImplementation(testStateSelector)
-		useAppDispatch.mockImplementation(() => jest.fn)
-	})
-
-	afterEach(() => jest.clearAllMocks())
-
 	it("should render the layout component", () => {
-		render(<Layout />)
+		renderWithProviders(<Layout />)
 	})
 
 	it("should render the login component if user is not login", () => {
-		render(<Layout />)
-		// screen.findAllByTestId()
+		renderWithProviders(<Layout />)
+		expect(screen.getByTestId("login-form")).toBeDefined()
+	})
+
+	it("should  not render the login component if user is login", () => {
+		renderWithProviders(<Layout />)
+		userEvent.type(screen.getByPlaceholderText(/username/i), "user")
+		userEvent.type(screen.getByPlaceholderText(/password/i), "password")
+		userEvent.click(screen.getByDisplayValue(/submit/i))
+		expect(screen.queryByTestId("login-form")).toBeNull()
 	})
 })

@@ -46,7 +46,7 @@ const Listing: React.FC<props> = ({
 		)
 	}
 	return (
-		<>
+		<div data-testid="listing">
 			<div
 				className="flex drop-shadow space-x-4 rounded-lg bg-white mb-4 p-2 border-2 border-transparent duration-200 hover:border-blue-500 cursor-pointer"
 				onClick={_handleContactShow}
@@ -71,6 +71,7 @@ const Listing: React.FC<props> = ({
 					</div>
 
 					<div
+						data-testid="like-button"
 						className="flex space-x-2 text-xs text-gray-500 cursor-pointer w-10 h-4"
 						onClick={_handleLike}
 					>
@@ -84,7 +85,7 @@ const Listing: React.FC<props> = ({
 					_handleClose={_handleContactShow}
 				/>
 			)}
-		</>
+		</div>
 	)
 }
 
