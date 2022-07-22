@@ -64,15 +64,15 @@ describe("listing", () => {
   it("should open and close the contact modal", () => {
     render(<App />);
 
-    const listing = screen.getAllByTestId("listing");
+    const listing = screen.getAllByTestId("click-listing");
 
     userEvent.click(listing[0]);
     expect(screen.getByTestId("contact-form")).toBeInTheDocument();
 
-    const close = screen.getByTestId("close-form");
+    const close = screen.queryByTestId("close-form");
     expect(close).toBeInTheDocument();
 
     userEvent.click(close);
-    expect(screen.getByTestId("contact-form")).toBeNull();
+    expect(screen.queryByTestId("contact-form")).not.toBeInTheDocument();
   });
 });

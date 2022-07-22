@@ -47,7 +47,7 @@ const Layout: React.FC<props> = ({ children, setIsOpen, isOpen }) => {
           {children}
         </div>
       </div>
-      {/* <LoginForm testId="login-form" /> */}
+
       {!isLoggedIn && <LoginForm testId="login-form" />}
     </>
   );
