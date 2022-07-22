@@ -8,6 +8,7 @@ import { Provider } from "react-redux"
 import type { AppStore, RootState } from "./index"
 import { setupStore } from "./index"
 import { initialState } from "./slice/appslice"
+import { ToastContainer } from "react-toastify"
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
@@ -25,7 +26,22 @@ export function renderWithProviders(
 	}: ExtendedRenderOptions = {}
 ) {
 	function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-		return <Provider store={store}>{children}</Provider>
+		return (
+			<Provider store={store}>
+				<ToastContainer
+					position="top-center"
+					autoClose={5000}
+					hideProgressBar
+					newestOnTop
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss={false}
+					draggable
+					pauseOnHover={false}
+				/>
+				{children}
+			</Provider>
+		)
 	}
 	return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) }
 }
