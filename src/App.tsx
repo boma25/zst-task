@@ -47,7 +47,9 @@ function App() {
 				/>
 			</div>
 			<div className="w-11/12 mt-12">
-				<p className="font-bold text-3xl">Listings</p>
+				<p className="font-bold text-3xl" data-testid="title">
+					Listings
+				</p>
 
 				<div className="mt-8">
 					{availableList.map((value, index) => (
