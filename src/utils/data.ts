@@ -91,8 +91,8 @@ const asideList: Array<{ name: string; Icon: any }> = [
 ]
 
 const loginCred = {
-	username: "user",
-	password: "password",
+	email: "boma@boma.com",
+	password: "theTest123",
 }
 
 export { listings, asideList, loginCred }

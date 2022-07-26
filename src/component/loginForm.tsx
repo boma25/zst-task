@@ -12,7 +12,7 @@ interface props {
 
 const LoginForm: React.FC<props> = ({ className, testId }) => {
 	const [formData, setFormData] = useState({
-		username: "",
+		email: "",
 		password: "",
 	})
 	const { isLoading } = useAppSelector(appState)
@@ -39,13 +39,13 @@ const LoginForm: React.FC<props> = ({ className, testId }) => {
 			>
 				<p className="text-3xl font-bold text-white">Login</p>
 				<input
-					type="text"
-					placeholder="username"
+					type="email"
+					placeholder="email"
 					className="bg-transparent border-white rounded border px-2 mt-4 text-white focus:outline-none"
 					required
-					name="username"
+					name="email"
 					onChange={_handleChange}
-					value={formData.username}
+					value={formData.email}
 				/>
 
 				<input
